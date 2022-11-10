@@ -3,7 +3,7 @@ import Task from '../Task/Task';
 
 import styles from './Tasks.module.css';
 
-const Tasks = () => {
+const Tasks = ({ tasks }) => {
   return (
     <section className={styles.tasks}>
       <header className={styles.header}>
@@ -19,7 +19,9 @@ const Tasks = () => {
       </header>
 
       <div className={styles.list}>
-        <Task />
+        {tasks.map((task) => (
+          <Task key={task.id} task={task} />
+        ))}
       </div>
     </section>
   );

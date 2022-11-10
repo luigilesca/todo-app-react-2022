@@ -1,14 +1,15 @@
 import { TbTrash } from 'react-icons/tb';
 import styles from './Task.module.css';
 
-const Task = () => {
+const Task = ({ task }) => {
   return (
     <div className={styles.task}>
+      {/*  */}
       <button className={styles.checkContainer}>
         <div />
       </button>
 
-      <p>Studiare Javascript, React, Typescript e React native</p>
+      <p>{task.title}</p>
 
       <button className={styles.deleteButton}>
         <TbTrash size={20} />
