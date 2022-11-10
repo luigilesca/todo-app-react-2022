@@ -11,12 +11,14 @@ const Header = ({ onAddTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // passo la funzione come prop
     onAddTask(title);
 
     // clean the input after submit
     setTitle('');
   };
 
+  // funzione che mi aggiorna lo state dell'input
   const onChangeTitle = (e) => {
     setTitle(e.target.value);
   };
