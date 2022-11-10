@@ -7,7 +7,7 @@ const Tasks = ({ tasks, onComplete, onDelete }) => {
   //
   const tasksQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
-  const allTasksIsCompleted = tasksQuantity === completedTasks;
+  const allTasksIsCompleted = tasksQuantity === completedTasks && tasksQuantity !== 0;
 
   return (
     <section className={styles.tasks}>
