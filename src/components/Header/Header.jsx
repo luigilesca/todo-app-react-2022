@@ -61,9 +61,12 @@ const Header = ({ onAddTask }) => {
             type='text'
             placeholder='Add new task'
           />
+
           <button>
             Create
-            <AiOutlinePlusCircle size={20} />
+            <span>
+              <AiOutlinePlusCircle size={20} />
+            </span>
           </button>
 
           {titleIsInvalid && <p className={styles.info}>Write your next task</p>}

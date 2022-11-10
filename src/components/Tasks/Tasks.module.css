@@ -1,7 +1,9 @@
 .tasks {
+  /* border: 2px solid red; */
+
   width: 100%;
   max-width: 736px;
-  margin: 0 auto;
+  margin: 0px auto;
   margin-top: 90px;
   padding: 0 1rem;
 }
@@ -47,4 +49,10 @@
 .info {
   text-align: center;
   margin: 50px auto;
+}
+
+@media screen and (max-width: 768px) {
+  .tasks {
+    margin-top: 160px;
+  }
 }
