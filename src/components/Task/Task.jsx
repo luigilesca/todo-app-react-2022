@@ -2,8 +2,7 @@ import { TbTrash } from 'react-icons/tb';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import styles from './Task.module.css';
 
-const Task = ({ task, onComplete }) => {
-  console.log(task);
+const Task = ({ task, onComplete, onDelete }) => {
   return (
     <div className={styles.task}>
       {/*  */}
@@ -13,7 +12,7 @@ const Task = ({ task, onComplete }) => {
 
       <p className={task.isCompleted ? styles.textCompleted : ''}>{task.title}</p>
 
-      <button className={styles.deleteButton}>
+      <button onClick={() => onDelete(task.id)} className={styles.deleteButton}>
         <TbTrash size={20} />
       </button>
     </div>

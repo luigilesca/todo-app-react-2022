@@ -3,7 +3,7 @@ import Task from '../Task/Task';
 
 import styles from './Tasks.module.css';
 
-const Tasks = ({ tasks, onComplete }) => {
+const Tasks = ({ tasks, onComplete, onDelete }) => {
   //
   const tasksQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
@@ -26,7 +26,7 @@ const Tasks = ({ tasks, onComplete }) => {
 
       <div className={styles.list}>
         {tasks.map((task) => (
-          <Task key={task.id} task={task} onComplete={onComplete} />
+          <Task key={task.id} task={task} onComplete={onComplete} onDelete={onDelete} />
         ))}
       </div>
     </section>

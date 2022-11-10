@@ -15,7 +15,7 @@ function App() {
         isCompleted: false,
       },
     ]);
-    console.log(tasks);
+    // console.log(tasks);
   };
 
   // toggle task completed
@@ -32,10 +32,17 @@ function App() {
     setTasks(newTasks);
   };
 
+  // Delete tasks
+  const deleteTaskById = (taskId) => {
+    const newTask = tasks.filter((task) => task.id !== taskId);
+
+    setTasks(newTask);
+  };
+
   return (
     <>
       <Header onAddTask={addTask} />
-      <Tasks tasks={tasks} onComplete={toggleTaskCompletedById} />
+      <Tasks tasks={tasks} onComplete={toggleTaskCompletedById} onDelete={deleteTaskById} />
     </>
   );
 }
