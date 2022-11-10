@@ -43,3 +43,8 @@
   flex-direction: column;
   gap: 12px;
 }
+
+.info {
+  text-align: center;
+  margin: 50px auto;
+}

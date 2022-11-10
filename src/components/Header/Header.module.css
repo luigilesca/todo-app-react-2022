@@ -46,3 +46,11 @@
   font-weight: 700;
   font-size: 14px;
 }
+
+.info {
+  position: absolute;
+  top: 65px;
+  left: 25px;
+  color: orange;
+  font-size: 14px;
+}

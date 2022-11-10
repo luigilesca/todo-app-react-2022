@@ -1,13 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Header from './components/Header/Header';
 import Tasks from './components/Tasks/Tasks';
 
+const LOCAL_STORAGE_KEY = 'todo:savedtasks';
+
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    loadSavedTasks();
+  }, []);
+
+  // funzione per caricare i dati dal local storage
+  const loadSavedTasks = () => {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+    if (saved) {
+      setTasks(JSON.parse(saved));
+    }
+  };
+
+  // Save tasks with Local Storage
+  const setTasksAndSave = (newTask) => {
+    setTasks(newTask);
+
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTask));
+  };
+
   const addTask = (taskTitle) => {
-    setTasks([
+    setTasksAndSave([
       ...tasks,
       {
         id: crypto.randomUUID(),
@@ -29,14 +51,14 @@ function App() {
       }
       return task;
     });
-    setTasks(newTasks);
+    setTasksAndSave(newTasks);
   };
 
   // Delete tasks
   const deleteTaskById = (taskId) => {
     const newTask = tasks.filter((task) => task.id !== taskId);
 
-    setTasks(newTask);
+    setTasksAndSave(newTask);
   };
 
   return (
