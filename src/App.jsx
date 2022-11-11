@@ -30,12 +30,12 @@ function App() {
 
   const addTask = (taskTitle) => {
     setTasksAndSave([
-      ...tasks,
       {
         id: crypto.randomUUID(),
         title: taskTitle,
         isCompleted: false,
       },
+      ...tasks,
     ]);
     // console.log(tasks);
   };
