@@ -29,15 +29,16 @@ function App() {
   };
 
   const addTask = (taskTitle) => {
+    const capitalizeFirstLetter = taskTitle[0].toUpperCase() + taskTitle.slice(1);
+
     setTasksAndSave([
       {
         id: crypto.randomUUID(),
-        title: taskTitle,
+        title: capitalizeFirstLetter,
         isCompleted: false,
       },
       ...tasks,
     ]);
-    // console.log(tasks);
   };
 
   // toggle task completed
